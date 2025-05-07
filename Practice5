@@ -44,30 +44,30 @@ but it contains multiple syntax errors that prevent it from being parsed.
 // 🔍 Provided JSON File with Errors
 // ============================================
 
-const invalidBookingJSON = `
+const invalidBookingJSON = ` // backticks shouldn't be here nor equal sign. const is invalid JSON
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15" //No Comma after the string, syntax error
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      name: "Alice Johnson", //Missing double quotes, syntax error
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
+      "age": undefined, //Should be null, undefined is an invalid data type in JSON
       "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking",] //remove comma after the last element. syntax error.
   }
 }
-`;
+`;// remove semicolon and backtick
 
 
 // ============================================
@@ -99,3 +99,40 @@ const invalidBookingJSON = `
 4️⃣ What strategies can help you avoid these kinds of errors in the future?
    (e.g., syntax highlighting, linters, writing JSON by example)
 */
+
+
+//
+  1. Proof reading and console.log 
+  2. Online Validator
+  3. The syntax errors are tricky
+  4. Careful coding, learning the structure of JSON, and syntax highlights are helpful.
+//*
+
+//Proper JSON Below//
+
+{
+    "hotelName": "Grand City Hotel",
+    "checkInDate": "2024-05-15",
+    "checkOutDate": "2024-05-20",
+    "guests": [
+        {
+            "name": "Alice Johnson",
+            "age": 30,
+            "email": "alice.johnson@example.com"
+        },
+        {
+            "name": "Bob Smith",
+            "age": null,
+            "email": "bob.smith@example"
+        }
+    ],
+    "roomDetails": {
+        "type": "Suite",
+        "pricePerNight": 200,
+        "amenities": [
+            "WiFi",
+            "Breakfast",
+            "Parking"
+        ]
+    }
+}
